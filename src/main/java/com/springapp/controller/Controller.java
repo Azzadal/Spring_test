@@ -26,6 +26,8 @@ public class Controller {
         return "hello";
     }
 
+    //тестовые запросы
+
     @PostMapping(value = "/arr/{category},{userId}")
     public void test(@PathVariable ("category") String category, @PathVariable ("userId") String userid){
         artefact.setCategory(category);
@@ -33,21 +35,21 @@ public class Controller {
         repository.save(artefact);
     }
 
+
     @PostMapping(value = "/com/{content},{userId}")
     public void test_com(@PathVariable ("content") String content, @PathVariable ("userId") String userid){
-        //artefact = repository.findById(03cae86c-db1a-4ac2-b71c-baf3f7a178e4);
         comment.setArtefact(artefact);
         comment.setContent(content);
         comment.setUserId(userid);
         commentRepository.save(comment);
     }
 
-    @RequestMapping("/com")
-    public @ResponseBody Iterable<Comment> greeting() {
-        return commentRepository.findAll(Sort );
+    @GetMapping("/com")
+    public @ResponseBody Iterable<Comment> getComments() {
+        return commentRepository.findAll();
     }
-    @RequestMapping("/arr")
-    public @ResponseBody Iterable<Artefact> greeting1() {
+    @GetMapping("/arr")
+    public @ResponseBody Iterable<Artefact> getArtefacts() {
         return repository.findAll();
     }
 
