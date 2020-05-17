@@ -21,4 +21,12 @@ public class Artefact {
     private String description;
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "artefact", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Comment> commentList;
+
+    public Artefact() {
+    }
+
+    public Artefact(String userId, String category) {
+        this.userId = userId;
+        this.category = category;
+    }
 }

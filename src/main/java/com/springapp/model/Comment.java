@@ -17,4 +17,13 @@ public class Comment {
     private Artefact artefact;
     private String userId;
     private String content;
+
+    public Comment() {
+    }
+
+    public Comment(Artefact artefact, String userId, String content) {
+        this.artefact = artefact;
+        this.userId = userId;
+        this.content = content;
+    }
 }

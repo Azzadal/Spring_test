@@ -11,4 +11,5 @@ public class ArtefactRestController extends AbstractRestController<Artefact, Art
     public ArtefactRestController(ArtefactRepository repo) {
         super(repo);
     }
+
 }
